@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Herazika｜ペンシルゼミナール成瀬校 ランキング</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;700;900&display=swap">
+<script>
+  // GA4（TACランキング・QR動画ページと同じプロパティ）。公開ホストでだけ送る
+  if (/herazika\.(github\.io|com)$/.test(location.hostname)) {
+    var s = document.createElement('script'); s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-DRLSHF02JK'; document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date()); gtag('config', 'G-DRLSHF02JK');
+  }
+</script>
+<style>
+  :root {
+    /* Herazika アプリのトークン（勉強貯金ホーム画面デザインからサンプリング） */
+    --page-bg: #ECEEF1; --card: #FFFFFF; --ink: #333333; --sub: #777777;
+    --navy: #0D2B53; --crimson: #C2485A; --crimson-track: #EAD6D8;
+    --gold: #F5C64B; --gold-deep: #DCA92A; --gold-ink: #5C4408;
+    --line: #DFE3E9; --ok: #2E7D46; --ok-bg: #E4F2E8; --wait: #8A93A3; --wait-bg: #EEF1F5;
+    --radius: 10px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--page-bg); color: var(--ink); -webkit-font-smoothing: antialiased;
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+  }
+  .wrap { max-width: 520px; margin: 0 auto; padding: 12px 12px 48px; }
+  .demo { background: #FFF4D6; color: #7A5A00; border: 1.5px solid #F2D27A; border-radius: 6px;
+    font-size: 12px; font-weight: 700; text-align: center; padding: 8px; margin-bottom: 10px; }
+
+  /* ヘッダー: navy カード */
+  header { background: var(--navy); color: #fff; border-radius: var(--radius);
+    padding: 18px 18px 16px; position: relative; overflow: hidden; }
+  header .coin { position: absolute; right: -16px; top: -16px; width: 96px; height: 96px; border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #FFD76A, #F2B72E 70%); opacity: .14; }
+  header .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .12em; color: rgba(255,255,255,.72); }
+  header h1 { font-size: 15px; font-weight: 700; margin-top: 8px; line-height: 1.5; color: rgba(255,255,255,.92); }
+  header h1 strong { display: block; font-size: 28px; font-weight: 900; letter-spacing: .04em; color: #fff; }
+  header .meta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+  header .meta span { font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 999px;
+    background: rgba(255,255,255,.14); color: rgba(255,255,255,.92); }
+
+  /* タブ: 2×2 */
+  .tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 12px 0; position: sticky; top: 8px; z-index: 5; }
+  .tab { border: 1.5px solid var(--line); background: var(--card); color: var(--sub);
+    font: inherit; font-size: 13px; font-weight: 700; padding: 11px 4px; border-radius: 999px;
+    cursor: pointer; text-align: center; white-space: nowrap; }
+  .tab.on { background: var(--navy); border-color: var(--navy); color: #fff;
+    box-shadow: 0 3px 10px rgba(13,43,83,.22); }
+  .tab:focus-visible { outline: 2px solid var(--crimson); outline-offset: 2px; }
+  .panel { display: none; }
+  .panel.on { display: block; }
+  .note { color: var(--sub); font-size: 11.5px; font-weight: 600; margin: 2px 6px 10px; line-height: 1.7; }
+
+  /* リスト */
+  ul.board { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  li.row { display: flex; align-items: center; gap: 12px; padding: 12px 14px;
+    background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); }
+  li.empty { padding: 30px 16px; color: var(--sub); font-size: 12.5px; font-weight: 600; text-align: center;
+    background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); line-height: 1.7; }
+  .rank { flex: 0 0 34px; height: 34px; border-radius: 50%; background: var(--wait-bg); color: var(--wait);
+    font-weight: 800; font-size: 14px; display: flex; align-items: center; justify-content: center;
+    font-variant-numeric: tabular-nums; }
+  li.r1 .rank { background: radial-gradient(circle at 35% 30%, #FFD76A, #F2B72E 70%); color: var(--gold-ink);
+    border: 1.5px solid var(--gold-deep); }
+  li.r2 .rank { background: linear-gradient(135deg, #E6E9EE, #BFC6D1); color: #4C5566; }
+  li.r3 .rank { background: linear-gradient(135deg, #E9CBB4, #C8946B); color: #5A3A22; }
+  li.r1 { border-color: var(--gold-deep); }
+  li.r1 .nick { font-size: 16.5px; }
+  .who { flex: 1 1 auto; min-width: 0; display: flex; align-items: center; gap: 6px; }
+  .nick { font-size: 15px; font-weight: 800; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .chip { flex: none; font-size: 10px; font-weight: 800; padding: 2px 8px; border-radius: 999px;
+    background: var(--ok-bg); color: var(--ok); }
+  .val { flex: 0 0 auto; font-size: 20px; font-weight: 900; color: var(--crimson);
+    font-variant-numeric: tabular-nums; line-height: 1; }
+  .val small { font-size: 11px; font-weight: 700; color: var(--sub); margin-left: 2px; }
+
+  /* 友人招待: 3枠 */
+  .slots { flex: 0 0 auto; display: flex; align-items: center; gap: 8px; }
+  .dots { display: flex; gap: 4px; }
+  .dots i { width: 14px; height: 14px; border-radius: 50%; background: var(--crimson-track); display: block; }
+  .dots i.on { background: var(--crimson); }
+  .cnt { font-size: 18px; font-weight: 900; color: var(--crimson); font-variant-numeric: tabular-nums; line-height: 1; min-width: 44px; text-align: right; }
+  .cnt small { font-size: 11px; font-weight: 700; color: var(--sub); }
+  .done { font-size: 10px; font-weight: 800; padding: 3px 8px; border-radius: 999px;
+    background: var(--gold); color: var(--gold-ink); white-space: nowrap; }
+  li.inv.full { border-color: var(--gold-deep); background: linear-gradient(90deg, #FFF8E4, var(--card) 55%); }
+  li.inv.full .dots i.on { background: var(--gold-deep); }
+  li.inv.full .cnt { color: var(--gold-ink); }
+
+  footer { margin-top: 24px; color: #9AA1AB; font-size: 10.5px; font-weight: 600; line-height: 1.9; text-align: center; }
+  @media (prefers-reduced-motion: no-preference) { .tab { transition: background .15s, color .15s; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  
+  <header>
+    <div class="coin"></div>
+    <div class="eyebrow">HERAZIKA 勉強バイト</div>
+    <h1>ペンシルゼミナール成瀬校<strong>ランキング</strong></h1>
+    <div class="meta"><span>期間 11/16〜11/26</span><span>15分ごとに更新</span><span>最終更新 2026/10/26 10:55</span></div>
+  </header>
+
+  <nav class="tabs" role="tablist">
+    <button class="tab on" data-t="p-slots" role="tab">累計参加コマ数</button>
+    <button class="tab" data-t="p-days" role="tab">累計参加日数</button>
+    <button class="tab" data-t="p-streak" role="tab">連続参加日数</button>
+    <button class="tab" data-t="p-invite" role="tab">友だち招待</button>
+  </nav>
+
+  <section id="p-slots" class="panel on">
+    <p class="note">期間中に参加したコマ数の合計（1コマ＝25分）。参加した人を全員表示しています。</p>
+    <ul class="board"><li class="empty">11/16（月）からスタート。</li></ul>
+  </section>
+
+  <section id="p-days" class="panel">
+    <p class="note">期間中に参加した日数の合計。1日に何コマ参加しても1日と数えます。</p>
+    <ul class="board"><li class="empty">11/16（月）からスタート。</li></ul>
+  </section>
+
+  <section id="p-streak" class="panel">
+    <p class="note">今日または昨日まで、毎日続けて参加している日数。1日休むと0に戻ります。</p>
+    <ul class="board"><li class="empty">11/16（月）からスタート。</li></ul>
+  </section>
+
+  <section id="p-invite" class="panel">
+    <p class="note">招待した友だちの人数（招待枠は1人10枠まで）。人数が同じときは、早く集めた人が上です。</p>
+    <ul class="board"><li class="empty">まだ友だちを招待した人はいません。招待枠は1人10枠まで。</li></ul>
+  </section>
+
+  <footer>
+    ランキングは約15分ごとに自動更新されます。<br>
+    表示名はアプリのニックネームです。<br>
+    © Herazika
+  </footer>
+</div>
+<script>
+  document.querySelectorAll('.tab').forEach(function (b) {
+    b.addEventListener('click', function () {
+      document.querySelectorAll('.tab').forEach(function (x) { x.classList.remove('on'); });
+      document.querySelectorAll('.panel').forEach(function (x) { x.classList.remove('on'); });
+      b.classList.add('on');
+      document.getElementById(b.dataset.t).classList.add('on');
+      if (window.gtag) gtag('event', 'ranking_tab', { tab: b.dataset.t });
+    });
+  });
+</script>
+</body>
+</html>
