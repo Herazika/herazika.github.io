@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Herazika｜ヒーローズ目黒不動前校</title>
+<meta name="robots" content="noindex">
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: #F6F3EC;
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px;
+    padding: 16px;
+  }
+  .player {
+    position: relative;
+    width: min(100%, calc((100vh - 120px) * 9 / 16), 420px);
+    aspect-ratio: 9 / 16;
+    background: #000;
+    border-radius: 12px; overflow: hidden;
+  }
+  .player video { display: block; width: 100%; height: 100%; }
+  .cover {
+    position: absolute; inset: 0;
+    display: grid; place-items: center;
+    background: rgba(0, 0, 0, .25);
+    border: 0; padding: 0; cursor: pointer;
+  }
+  .cover span {
+    width: 76px; height: 76px; border-radius: 50%;
+    background: #C0392B;
+    display: grid; place-items: center;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .3);
+  }
+  .cover svg { width: 30px; height: 30px; margin-left: 4px; fill: #fff; }
+  .player.playing .cover { display: none; }
+
+  .cta {
+    display: none;
+    width: 100%; max-width: 360px;
+    min-height: 56px; padding: 12px 22px;
+    align-items: center; justify-content: center;
+    border-radius: 999px;
+    background: #C0392B; color: #fff;
+    font-weight: 900; font-size: 18px; letter-spacing: .02em;
+    text-decoration: none;
+    box-shadow: 0 6px 16px rgba(192, 57, 43, .35);
+  }
+  .cta.show { display: flex; }
+  .cta:active { background: #A62F23; }
+</style>
+</head>
+<body>
+  <div class="player" id="player">
+    <video id="video" disablePictureInPicture playsinline webkit-playsinline preload="metadata" poster="../poster.jpg" src="../video.mp4"></video>
+    <button class="cover" id="cover" type="button" aria-label="動画を再生">
+      <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5v17l14-8.5z"/></svg></span>
+    </button>
+  </div>
+
+  <a class="cta" id="cta" href="https://app.herazika.com/herazika/signup/academic/coupon/f081523013040f7acf0a6182f861ed8321623082a701cc27aff9cf950b2a45cf">登録する</a>
+
+<script>
+(function () {
+  var video = document.getElementById('video');
+  var player = document.getElementById('player');
+  var cta = document.getElementById('cta');
+
+  // GA4: 本番ホストでだけ送る（ローカル/プレビューでは何もしない）
+  var GA_ID = 'G-DRLSHF02JK';
+  if (/(^|\.)herazika\.(com|github\.io)$/.test(location.hostname)) {
+    var s = document.createElement('script'); s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { dataLayer.push(arguments); };
+    gtag('js', new Date()); gtag('config', GA_ID);
+  }
+  function track(name) { if (window.gtag) gtag('event', name); }
+
+  document.getElementById('cover').addEventListener('click', function () {
+    video.play().catch(function () { video.controls = true; });
+    player.classList.add('playing');
+  });
+  video.addEventListener('click', function () { video.paused ? video.play() : video.pause(); });
+  video.addEventListener('play', function () { track('video_start'); }, { once: true });
+  video.addEventListener('ended', function () {
+    cta.classList.add('show');
+    track('video_complete');
+  });
+  cta.addEventListener('click', function () { track('cta_click'); });
+})();
+</script>
+</body>
+</html>
